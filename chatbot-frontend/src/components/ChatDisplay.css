@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Pacifico');
+
+.college-theme{
+	background-color: #A30046;
+}
+
+.college-theme h1{
+	font-family: 'Pacifico', cursive;
+	color: white;
+	 margin: 0;
+	 height: 40px;
+	 font-size: 20px;
+	 display: flex;
+	 align-items: center;
+	justify-content: center;
+}
+
+.college-theme .chats {
+	box-sizing: border-box;
+	padding: 0 20px;
+	margin: 10px 0 0;
+	height: 510px;
+	overflow-y: scroll;
+}
+
+.college-theme .chats .chat {
+	background: rgba(255, 255, 255, 0.8);
+	position: relative;
+	padding: 5px 13px;
+	font-size: 14px;
+	border-radius: 10px;
+	list-style: none;
+	float: left;
+	clear: both;
+	margin: 10px 0;
+	max-width: 200px;
+}
+
+.college-theme .chats .chat.right{
+	float: right;
+	clear: both;
+}
