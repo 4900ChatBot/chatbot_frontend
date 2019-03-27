@@ -1,16 +1,23 @@
 import React from 'react';
 import './ChatDisplay.css';
 import MessageForm from './MessageForm';
+import ReactDOM from 'react-dom';
 
 const botName = 'Dana, BC Bot';
 class Message extends React.Component {
+	constructor(props) {
+		super(props)
+		this.msg = React.createRef();
+		this.getInputEl = this.getInputEl.bind(this)
+	}
+
 	render(){
 		return (
 			<div>
 			<ul className="chats">
-			{this.props.messages.map(messages => {
+			{this.props.messages.map((messages, idx) => {
 				return (	
-				<li className={`chat ${botName === messages.username ? "left" : "right"}`} key={messages.id}>
+				<li className={`chat ${botName === messages.username ? "left" : "right"}`} key={idx}>
 					<div>
 						{messages.username}
 					</div>
@@ -21,12 +28,16 @@ class Message extends React.Component {
 				)
 			})}
 			</ul>
-			<form className="input" onSubmit={(userInput) => this.submitMessage(userInput)}>
-				<input type="text" ref="msg"/>
+			<form className="input" onSubmit={(e)=>{e.preventDefault();this.props.onSubmit()}}>
+				<input type="text" ref={this.msg}/>
 				<input type="submit" value="Submit"/>
 			</form>
 			</div>
 		);
+	}
+
+	getInputEl() {
+		return ReactDOM.findDOMNode(this.msg.current)
 	}
 }
 export default Message;
