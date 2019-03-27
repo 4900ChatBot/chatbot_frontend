@@ -3,9 +3,7 @@ import './ChatDisplay.css';
 
 class MessageForm extends React.Component{
 	render(){
-		return(
-			
-		)
+		return
 	}
 }
 
