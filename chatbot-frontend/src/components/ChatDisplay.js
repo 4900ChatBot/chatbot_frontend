@@ -1,13 +1,12 @@
 import React from 'react';
 import './ChatDisplay.css';
-import ReactDOM from 'react-dom';
 import Message from './Message';
 import MessageForm from './MessageForm';
 
 class ChatDisplay extends React.Component {
 	constructor(props){
 		super(props);
-
+		
 		const chats = [{
 				username: "Dana, BC Bot",
 				content: <p>Hello World!</p>,
@@ -21,22 +20,22 @@ class ChatDisplay extends React.Component {
 			messages:chats
 		};
 
+		this.message = React.createRef();
 		this.submitMessage = this.submitMessage.bind(this);
 
 	}
 
 	
 
-	submitMessage(userInput){
-		userInput.preventDefault();
-
+	submitMessage(){
+		let input = this.message.current.getInputEl()
 		this.setState({
-			chats: this.state.chats.concat([{
+			messages: this.state.messages.concat([{
 				username:"Student",
-				content: <p>{ReactDOM.findDOMNode(this.refs.msg).value}</p>
+				content: <p>{input.value}</p>
 			}])
 		}, () => {
-			ReactDOM.findDOMNode(this.refs.msg).value = "";
+			input.value = "";
 		});
 	}
 
@@ -46,7 +45,8 @@ class ChatDisplay extends React.Component {
 			<div className="App">
 				<div className="college-theme">
 					<h1>Chat Room</h1>
-					<Message messages={this.state.messages}/>
+					<Message ref={this.message}
+						onSubmit={this.submitMessage} messages={this.state.messages}/>
 				</div>
 			</div>
 		);
