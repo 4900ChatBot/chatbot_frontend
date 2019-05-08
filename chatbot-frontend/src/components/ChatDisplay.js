@@ -9,7 +9,17 @@ class ChatDisplay extends React.Component {
 		
 		const chats = [{
 				username: 'Dana, BC Bot',
-				content: <p>Hello World!</p>
+				content: <div>
+					<div><b>supported responds:</b></div>
+					<code>
+						intent:greet
+						intent:bye
+						intent:course_list
+						intent:info_major
+						intent:info_news
+						intent:calendar
+					</code>
+				</div>
 			}]
 		this.state = {
 			messages:chats
