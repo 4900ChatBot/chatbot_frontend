@@ -1,6 +1,5 @@
 import React from 'react';
 import './ChatDisplay.css';
-import MessageForm from './MessageForm';
 import ReactDOM from 'react-dom';
 
 const botName = 'Dana, BC Bot';

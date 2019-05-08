@@ -1,20 +1,15 @@
 import React from 'react';
 import './ChatDisplay.css';
 import Message from './Message';
-import MessageForm from './MessageForm';
+import axios from 'axios';
 
 class ChatDisplay extends React.Component {
 	constructor(props){
 		super(props);
 		
 		const chats = [{
-				username: "Dana, BC Bot",
-				content: <p>Hello World!</p>,
-				img: "https://s3.amazonaws.com/sidearm.sites/brooklyncollegeathletics.com/responsive_2018/images/svgs/main_logo.svg",
-			},{
-				username: "Student",
-				content: <p>YO!</p>,
-				img: "https://s3.amazonaws.com/sidearm.sites/brooklyncollegeathletics.com/responsive_2018/images/svgs/main_logo.svg",
+				username: 'Dana, BC Bot',
+				content: <p>Hello World!</p>
 			}]
 		this.state = {
 			messages:chats
@@ -31,11 +26,22 @@ class ChatDisplay extends React.Component {
 		let input = this.message.current.getInputEl()
 		this.setState({
 			messages: this.state.messages.concat([{
-				username:"Student",
+				username: 'Student',
 				content: <p>{input.value}</p>
 			}])
 		}, () => {
-			input.value = "";
+			axios.get(`/api/ask/${input.value}`).then((res) => {
+				const {data} = res;
+				if (data.length > 0) {
+					this.setState({
+						messages: this.state.messages.concat([{
+							username: 'Dana, BC Bot',
+							content: <p>{data[0].text}</p>
+						}])
+					});
+				}
+				input.value = '';
+			})
 		});
 	}
 
