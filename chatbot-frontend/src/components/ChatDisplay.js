@@ -49,6 +49,13 @@ class ChatDisplay extends React.Component {
 							content: <p>{data[0].text}</p>
 						}])
 					});
+				} else {
+					this.setState({
+						messages: this.state.messages.concat([{
+							username: 'Dana, BC Bot',
+							content: <p>Sorry I don't understand</p>
+						}])
+					});
 				}
 				input.value = '';
 			})
