@@ -29,10 +29,14 @@ class ChatDisplay extends React.Component {
 
 		this.message = React.createRef();
 		this.submitMessage = this.submitMessage.bind(this);
+		this.scrollToBottom = this.scrollToBottom.bind(this);
 
 	}
 
-	
+	scrollToBottom() {
+		let list = document.querySelector('.chats-container');
+		list.scrollTop = 1000000;
+	}
 
 	submitMessage(){
 		let input = this.message.current.getInputEl()
@@ -42,6 +46,7 @@ class ChatDisplay extends React.Component {
 				content: <p>{input.value}</p>
 			}])
 		}, () => {
+			this.scrollToBottom()
 			axios.get(`/api/ask/${input.value}`).then((res) => {
 				const {data} = res;
 				if (data.length > 0) {
@@ -59,6 +64,7 @@ class ChatDisplay extends React.Component {
 						}])
 					});
 				}
+				this.scrollToBottom()
 				input.value = '';
 			})
 		});
