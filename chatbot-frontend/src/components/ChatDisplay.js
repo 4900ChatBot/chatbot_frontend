@@ -66,6 +66,7 @@ class ChatDisplay extends React.Component {
 				}
 				this.scrollToBottom()
 				input.value = '';
+				input.focus();
 			})
 		});
 	}
