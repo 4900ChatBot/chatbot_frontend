@@ -40,6 +40,9 @@ class ChatDisplay extends React.Component {
 
 	submitMessage(){
 		let input = this.message.current.getInputEl()
+		if (!input.value) {
+			return;
+		}
 		this.setState({
 			messages: this.state.messages.concat([{
 				username: 'Student',
