@@ -7,29 +7,42 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	padding: 10px;
 }
 
 .college-theme{
+	height: 100%;
+	max-height: 600px;
+	width: 100%;
+	max-width: 400px;
 	background-color: #A30046;
+	display: grid;
+	grid-template-rows: 40px auto;
 }
 
 .college-theme h1{
 	font-family: 'Pacifico', cursive;
 	color: white;
-	 margin: 0;
-	 height: 40px;
-	 font-size: 20px;
-	 display: flex;
-	 align-items: center;
+	margin: 0;
+	height: 40px;
+	font-size: 20px;
+	display: flex;
+	align-items: center;
 	justify-content: center;
 }
 
+.chats-container {
+	position: relative;
+	overflow-y: scroll;
+}
+
 .college-theme .chats {
+	position: absolute;
 	box-sizing: border-box;
 	padding: 0 20px;
 	margin: 10px 0 0;
-	height: 510px;
-	overflow-y: scroll;
+	width: 100%;
+	height: auto;
 }
 
 .college-theme .chats .chat {
@@ -39,28 +52,31 @@
 	font-size: 14px;
 	border-radius: 10px;
 	list-style: none;
-	clear: both;
 	margin: 10px 0;
 	max-width: 200px;
+	overflow-wrap: break-word;
+}
+
+.college-theme .message-area {
+	height: 100%;
+	display: grid;
+	grid-template-rows: auto 40px;
 }
 
 .college-theme .chats .chat.right{
-	float: right;
-	clear: both;
+	margin-left: auto
 }
 
 .college-theme .chats .chat.left{
-	float: left;
-	clear: both;
+	margin-right: auto;
 }
 
 .college-theme .input{
   height: 40px;
   width: 100%;
   background: rgba(30, 228, 148, 0.7);
-  display: flex;
-  flex-direction: row;
-  align-items: center;	
+  display: grid;
+  grid-template-columns: auto 70px;
 }
 
 .college-theme .input input[type="text"]{
@@ -70,9 +86,9 @@
   padding: 0 5px;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
-  margin-left: 10px;
   height: 30px;
-  width: 270px;
+  width: auto;
+  margin: auto 0 auto 10px;
   box-sizing: border-box;
   font-size: 14px;	
 }
@@ -81,7 +97,8 @@
   background: transparent;
   border: 1px solid #1EE494;
   height: 30px;
-  width: 70px;
+  margin: auto auto auto 0;
+  width: auto;
   font-size: 14px;
   box-sizing: border-box;
   border-top-right-radius: 5px;

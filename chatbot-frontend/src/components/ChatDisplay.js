@@ -10,14 +10,16 @@ class ChatDisplay extends React.Component {
 		const chats = [{
 				username: 'Dana, BC Bot',
 				content: <div>
-					<div><b>supported responds:</b></div>
+					<div>Hi, how can I help you?</div>
 					<code>
-						intent:greet
-						intent:bye
-						intent:course_list
-						intent:info_major
-						intent:info_news
-						intent:calendar
+						<small>
+							intent:greet
+							intent:bye
+							intent:course_list
+							intent:info_major
+							intent:info_news
+							intent:calendar
+						</small>
 					</code>
 				</div>
 			}]
