@@ -56,7 +56,7 @@ class ChatDisplay extends React.Component {
 					this.setState({
 						messages: this.state.messages.concat([{
 							username: 'Dana, BC Bot',
-							content: <p>{data[0].text}</p>
+							content: <p dangerouslySetInnerHTML={{__html: data[0].text}}></p>
 						}])
 					});
 				} else {
