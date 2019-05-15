@@ -11,16 +11,22 @@ class ChatDisplay extends React.Component {
 				username: 'Dana, BC Bot',
 				content: <div>
 					<div>Hi, how can I help you?</div>
-					<code>
+					<pre>
 						<small>
-							intent:greet
-							intent:bye
-							intent:course_list
-							intent:info_major
-							intent:info_news
-							intent:calendar
+							{
+`- greet
+- bye
+- course_list
+- info_major
+- advice
+- info_news
+- calendar
+- programs
+- grad_prepare
+- prerequisites`
+							}
 						</small>
-					</code>
+					</pre>
 				</div>
 			}]
 		this.state = {
