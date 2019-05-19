@@ -19,6 +19,9 @@ class ChatDisplay extends React.Component {
 
 		this.message = React.createRef();
 		this.submitMessage = this.submitMessage.bind(this);
+		window.submitMessageEx = this.submitMessageEx.bind(this);
+		this.submitMessageEx = this.submitMessageEx.bind(this);
+		this.submitHelp = this.submitHelp.bind(this);
 		this.scrollToBottom = this.scrollToBottom.bind(this);
 
 	}
@@ -28,6 +31,38 @@ class ChatDisplay extends React.Component {
 		list.scrollTop = 1000000;
 	}
 
+	submitMessageEx(str){
+		this.setState({
+			messages: this.state.messages.concat([{
+				username: 'Student',
+				content: <p>{str}</p>
+			}])
+		}, () => {
+			this.scrollToBottom()
+			axios.get(`/api/ask/${str}`).then((res) => {
+				const {data} = res;
+				if (data.length > 0) {
+					this.setState({
+						messages: this.state.messages.concat([{
+							username: 'Dana, BC Bot',
+							content: <p dangerouslySetInnerHTML={{__html: data[0].text}}></p>
+						}])
+					});
+				} else {
+					this.setState({
+						messages: this.state.messages.concat([{
+							username: 'Dana, BC Bot',
+							content: <p>Sorry I don't understand</p>
+						}])
+					});
+				}
+				this.scrollToBottom()
+			})
+		});
+	}
+	submitHelp() {
+		this.submitMessageEx('help');
+	}
 	submitMessage(){
 		let input = this.message.current.getInputEl()
 		if (!input.value) {
@@ -70,6 +105,7 @@ class ChatDisplay extends React.Component {
 			<div className="App">
 				<div className="college-theme">
 					<h1>Chat Room</h1>
+					<div class="help-bubble" onClick={this.submitHelp}>Help</div>
 					<Message ref={this.message}
 						onSubmit={this.submitMessage} messages={this.state.messages}/>
 				</div>

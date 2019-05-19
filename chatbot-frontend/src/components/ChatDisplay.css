@@ -1,74 +1,75 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Pacifico');
 
 .App {
-	background-color: #1EE494;
-	height: 100vh;
-	width: 100vw;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	padding: 10px;
+  background-color: #1EE494;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
 }
 
 .college-theme{
-	height: 100%;
-	max-height: 600px;
-	width: 100%;
-	max-width: 400px;
-	background-color: #A30046;
-	display: grid;
-	grid-template-rows: 40px auto;
+  position: relative;
+  height: 100%;
+  max-height: 800px;
+  width: 100%;
+  max-width: 600px;
+  background-color: #A30046;
+  display: grid;
+  grid-template-rows: 40px auto;
 }
 
 .college-theme h1{
-	font-family: 'Pacifico', cursive;
-	color: white;
-	margin: 0;
-	height: 40px;
-	font-size: 20px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+  font-family: 'Pacifico', cursive;
+  color: white;
+  margin: 0;
+  height: 40px;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .chats-container {
-	position: relative;
-	overflow-y: scroll;
+  position: relative;
+  overflow-y: scroll;
 }
 
 .college-theme .chats {
-	position: absolute;
-	box-sizing: border-box;
-	padding: 0 20px;
-	margin: 10px 0 0;
-	width: 100%;
-	height: auto;
+  position: absolute;
+  box-sizing: border-box;
+  padding: 0 20px;
+  margin: 10px 0 0;
+  width: 100%;
+  height: auto;
 }
 
 .college-theme .chats .chat {
-	background: rgba(255, 255, 255, 0.8);
-	position: relative;
-	padding: 5px 13px;
-	font-size: 14px;
-	border-radius: 10px;
-	list-style: none;
-	margin: 10px 0;
-	max-width: 200px;
-	overflow-wrap: break-word;
+  background: rgba(255, 255, 255, 0.8);
+  position: relative;
+  padding: 5px 13px;
+  font-size: 14px;
+  border-radius: 10px;
+  list-style: none;
+  margin: 10px 0;
+  max-width: 85%;
+  overflow-wrap: break-word;
 }
 
 .college-theme .message-area {
-	height: 100%;
-	display: grid;
-	grid-template-rows: auto 40px;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 40px;
 }
 
 .college-theme .chats .chat.right{
-	margin-left: auto
+  margin-left: auto
 }
 
 .college-theme .chats .chat.left{
-	margin-right: auto;
+  margin-right: auto;
 }
 
 .college-theme .input{
@@ -110,4 +111,54 @@
 .college-theme .input input[type="submit"]:hover {
   background: #1EE494;
   color: #FFF;	
+}
+
+table {
+  margin-top: 10px;
+  margin-bottom: 30px;
+  width: 100%;
+  text-align: left;
+  color: #3f3f3f;
+  border-collapse: collapse;
+  border: 1px solid #e8e8e8
+}
+
+table tr:nth-child(even) {
+  background-color: #f7f7f7
+}
+
+table th,table td {
+  padding: 10px 15px
+}
+
+table th {
+  background-color: #f0f0f0;
+  border: 1px solid #dedede;
+  border-bottom-color: #c9c9c9
+}
+
+table td {
+  border: 1px solid #e8e8e8
+}
+
+a {
+  cursor: pointer;
+}
+
+.help-bubble {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-family: 'Pacifico', cursive;
+  color: #FFF;
+  height: 40px;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.help-bubble:hover {
+  color: #DDD;
 }
